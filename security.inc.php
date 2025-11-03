@@ -86,3 +86,12 @@ function wptk_get_user_ip_and_browser()
     return ['ip' => $ip, 'browser' => $browser_info];
 }
 
+
+//
+// Change the logo URL on the login page
+//
+function wptk_loginlogo_url($url)
+{
+        return '';
+}
+add_filter('login_headerurl','wptk_loginlogo_url');
