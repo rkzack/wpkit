@@ -47,10 +47,20 @@ function wptk_get_state_options($selected = '')
         return $options;
 }
 
-//
-// Remove these dashboard widgets from all dashboards regardless of role
-//
-//
+
+/**
+ * Remove default dashboard widgets for all users.
+ *
+ * This function removes several default WordPress dashboard widgets
+ * (such as Quick Draft, Activity, and Site Health) for all users,
+ * regardless of their role. It also disables the Welcome Panel.
+ *
+ * @since 1.0.0
+ * @package WP.Toolkit
+ *
+ * @global array $wp_meta_boxes The array of dashboard meta boxes.
+ * @return void
+ */
 function wptk_remove_dashboard_widgets() 
 {
     global $wp_meta_boxes;
@@ -66,5 +76,3 @@ function wptk_remove_dashboard_widgets()
     remove_action('welcome_panel', 'wp_welcome_panel');
 }
 add_action('wp_dashboard_setup', 'wptk_remove_dashboard_widgets',99999 );
-
-
