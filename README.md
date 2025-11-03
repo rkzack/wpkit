@@ -24,7 +24,8 @@ WP.Toolkit is a lightweight utility plugin providing reusable functions and secu
 
 ### 🎨 UX Enhancements
 - Friendlier login error messaging.
-- Optionally removes “— WordPress” from the `<title>` tag.
+- Removes “— WordPress” from the `<title>` tag.
+- `wptk_remove_dashboard_widgets()` - removes WP admin dashboard widgets
 
 ---
 
@@ -34,10 +35,10 @@ WP.Toolkit is a lightweight utility plugin providing reusable functions and secu
 wptoolkit/
 │
 ├── wptoolkit.php          # Main plugin bootstrap
-├── security.inc.php       # XMLRPC, RSS, sanitization, IP detection
-├── seo.inc.php            # Page ID, table check, reload helper
-├── tools.inc.php          # UI helpers, state dropdown
-└── ux.inc.php             # Output tweaks (title cleanup)
+├── security.inc.php       # Disable RSS & XML-RPC, sanitization, IP detection
+├── seo.inc.php            # Helpers related to SEO and page meta
+├── tools.inc.php          # General tools helpful for WP
+└── ux.inc.php             # UI/UX helpers and tweaks, state dropdown
 ```
 
 Each file focuses on a single responsibility and uses the `wptk_` function prefix to avoid naming collisions.
