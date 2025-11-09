@@ -12,7 +12,6 @@ WP.Toolkit is a lightweight utility plugin providing reusable functions and secu
 
 ### 🔐 Security
 - Disables XML-RPC requests.
-- Hides “WordPress” branding from page titles.
 - Disables all RSS and Atom feeds site-wide.
 - Removes RSS/Discovery meta tags from `<head>`.
 - Provides helpers for input sanitization and visitor fingerprinting.
@@ -92,11 +91,5 @@ If you use WP.Toolkit across multiple sites, consider it your common baseline fo
 
 ## 🪪 License
 
-Apache License © Richard Zack  
+Apache License © Richard Zack <r@zack.to>
 Free to use, modify, and distribute with attribution.
-
----
-
-## 🌐 Author
-
-**Richard Zack**  
