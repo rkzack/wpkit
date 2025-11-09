@@ -168,3 +168,60 @@ function wptk_loginlogo_url($url)
         return '';
 }
 add_filter('login_headerurl','wptk_loginlogo_url');
+
+
+/**
+ * Enforce strong passwords for new users and during password changes.
+ *
+ * This function hooks into both the registration and profile update
+ * validation routines to require strong passwords. A strong password must:
+ * - Be at least 10 characters long
+ * - Contain at least one uppercase letter
+ * - Contain at least one lowercase letter
+ * - Contain at least one number
+ * - Contain at least one special character
+ *
+ * @param WP_Error $errors WP_Error object to add validation errors to.
+ * @param bool|object $update (Optional) True if updating existing user, false if new. Default false.
+ * @param stdClass $user (Optional) User object, only passed for profile updates.
+ * @return void
+ */
+function wptk_enforce_strong_passwords( $errors, $update = false, $user = null )
+{
+	$debug = false;
+
+	if ( $debug ) error_log('[PASSWORD] Enforcement check started.');
+
+	// Capture password field from registration or profile form
+	$password = isset($_POST['pass1']) ? trim($_POST['pass1']) : ( isset($_POST['user_pass']) ? trim($_POST['user_pass']) : '' );
+
+	if ( empty($password) ) {
+		if ( $debug ) error_log('[PASSWORD] No password provided, skipping.');
+		return;
+	}
+
+	// Minimum length
+	if ( strlen($password) < 10 ) {
+		$errors->add( 'weak_password', __( '<strong>Error</strong>: Password must be at least 10 characters long.' ) );
+		return;
+	}
+
+	// Require uppercase, lowercase, number, and special character
+	if ( !preg_match('/[A-Z]/', $password) ||
+		 !preg_match('/[a-z]/', $password) ||
+		 !preg_match('/[0-9]/', $password) ||
+		 !preg_match('/[^A-Za-z0-9]/', $password) ) {
+		$errors->add( 'weak_password', __( '<strong>Error</strong>: Password must include uppercase, lowercase, number, and special character.' ) );
+		return;
+	}
+
+	if ( $debug ) error_log('[PASSWORD] Password meets strength requirements.');
+}
+
+// Hook into both profile updates and new registrations
+add_action( 'user_profile_update_errors', 'wptk_enforce_strong_passwords', 10, 3 );
+add_filter( 'registration_errors', function( $errors, $sanitized_user_login, $user_email ) {
+	wptk_enforce_strong_passwords( $errors );
+	return $errors;
+}, 10, 3 );
+
