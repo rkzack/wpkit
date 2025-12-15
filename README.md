@@ -1,7 +1,7 @@
-# WP.Toolkit 🧰  
+# WP.Kit 🧰  
 **WordPress Tools & Security Kit**
 
-WP.Toolkit is a lightweight utility plugin providing reusable functions and security hardening features for your WordPress sites and other custom plugins. It’s designed to act as a shared “standard library” you can safely call from anywhere — perfect for developers managing multiple custom plugins or themes.
+WP.Kit is a lightweight utility plugin providing reusable functions and security hardening features for your WordPress sites and other custom plugins. It’s designed to act as a shared “standard library” you can safely call from anywhere — perfect for developers managing multiple custom plugins or themes.
 
 ---
 
