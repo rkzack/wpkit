@@ -1,11 +1,11 @@
 <?php
 
 /*
-Plugin Name: WP.Toolkit
+Plugin Name: WP.Kit
 Plugin URI:  https://wordpress.org
 Description: WP Tools and Security Kit
 Author: Richard Zack
-Version: 1.0.2
+Version: 1.0.3
 Author URI: https://wordpress.org
 */
 
