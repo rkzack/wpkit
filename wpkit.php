@@ -5,7 +5,7 @@ Plugin Name: WP.Toolkit
 Plugin URI:  https://wordpress.org
 Description: WP Tools and Security Kit
 Author: Richard Zack
-Version: 1.0.0
+Version: 1.0.1
 Author URI: https://wordpress.org
 */
 
