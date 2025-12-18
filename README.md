@@ -8,10 +8,10 @@ WP.Kit is a lightweight utility plugin providing reusable functions and security
 ## 🚀 Features
 
 ### WordPress Support:  
-- 6.8.3
+- 6.8.3+
 
 ### 🔐 Security
-- Disables XML-RPC requests.
+- Disables all XML-RPC requests.
 - Disables all RSS and Atom feeds site-wide.
 - Removes RSS/Discovery meta tags from `<head>`.
 - Provides helpers for input sanitization and visitor fingerprinting.
@@ -34,9 +34,9 @@ WP.Kit is a lightweight utility plugin providing reusable functions and security
 ## 🧩 Structure
 
 ```
-wptoolkit/
+wpkit/
 │
-├── wptoolkit.php          # Main plugin bootstrap
+├── wpkit.php          # Main plugin bootstrap
 ├── security.inc.php       # Disable RSS & XML-RPC, sanitization, IP detection
 ├── seo.inc.php            # Helpers related to SEO and page meta
 ├── tools.inc.php          # General tools helpful for WP
@@ -49,7 +49,7 @@ Each file focuses on a single responsibility and uses the `wptk_` function prefi
 
 ## 💡 Usage
 
-Activate **WP.Toolkit** like any other plugin.  
+Activate **WP.Kit** like any other plugin.  
 Once active, its functions are globally available in PHP.
 
 ### Example – Direct calls
@@ -62,7 +62,7 @@ if (function_exists('wptk_saferinput')) {
 ```
 
 ### Example – Wait for the ready signal
-Other plugins can safely wait for WP.Toolkit to finish loading:
+Other plugins can safely wait for WP.Kit to finish loading:
 ```php
 add_action('wptk/ready', function () {
     $slug_id = wptk_get_id_by_slug('about-us');
@@ -85,7 +85,7 @@ If you add new helpers, keep the `wptk_` prefix and document them in this README
 ## 🧑‍💻 Contributing
 
 Pull requests and ideas are welcome.  
-If you use WP.Toolkit across multiple sites, consider it your common baseline for small custom tools — security tweaks, helper functions, and admin utilities.
+If you use WP.Kit across multiple sites, consider it your common baseline for small custom tools — security tweaks, helper functions, and admin utilities.
 
 ---
 
